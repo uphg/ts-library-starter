@@ -1,4 +1,4 @@
-function reduce(a: number, b: number) {
+function reduce(a: number, b: number): number {
   return a - b
 }
 

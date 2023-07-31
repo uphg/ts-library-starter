@@ -36,7 +36,7 @@ const esbuildPlugin = esbuild({
 
 const tsPlugin = typescript({
   check: process.env.NODE_ENV === 'production',
-  tsconfig: path.resolve(__dirname, 'tsconfig.json'),
+  tsconfig: 'tsconfig.json',
   tsconfigOverride: {
     compilerOptions: {
       sourceMap: false,
@@ -57,7 +57,7 @@ function createConfig(env) {
   return {
     input: path.resolve(__dirname, entryFile),
     output: outputConfigs[format],
-    plugins: [esbuildPlugin, ...(ESM ? [tsPlugin] : [])]
+    plugins: [tsPlugin, esbuildPlugin]
   }
 }
 
