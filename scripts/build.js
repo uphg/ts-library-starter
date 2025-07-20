@@ -1,19 +1,19 @@
 import path from 'path'
 import { execa } from 'execa'
 import fs from 'fs-extra'
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url'
 import minimist from 'minimist'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // const path = require('path')
 // const execa = require('execa')
 // const fs = require('fs-extra')
 
 const distDir = path.resolve(__dirname, '../dist')
-const resolve = (p) => path.resolve(distDir, p)
-const argv = minimist(process.argv.slice(2));
+const resolve = p => path.resolve(distDir, p)
+const argv = minimist(process.argv.slice(2))
 
 // use pnpm build -v 0.1.x
 run(argv)

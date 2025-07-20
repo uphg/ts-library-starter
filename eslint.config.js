@@ -1,12 +1,14 @@
 import js from '@eslint/js'
 import tseslint from '@typescript-eslint/eslint-plugin'
 import tsparser from '@typescript-eslint/parser'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default [
   {
     ignores: ['node_modules/**', 'dist/**', 'docs/.vitepress/cache/**']
   },
   js.configs.recommended,
+  stylistic.configs.recommended,
   {
     files: ['**/*.{js,ts}'],
     languageOptions: {
@@ -28,19 +30,16 @@ export default [
       }
     },
     plugins: {
-      '@typescript-eslint': tseslint
+      '@typescript-eslint': tseslint,
+      '@stylistic': stylistic
     },
     rules: {
-      // js/ts
-      indent: ['error', 2, { 'SwitchCase': 1 }],
-      quotes: ['error', 'single', { 'avoidEscape': true }],
-      'comma-dangle': ['error', 'never'],
       // 禁止特定语法
       'no-restricted-syntax': [
         'error',
         'WithStatement'
       ],
-      camelcase: 'error',
+      'camelcase': 'error',
       'no-var': 'error',
       'no-empty': 'error',
       'prefer-const': [
@@ -50,16 +49,27 @@ export default [
       'prefer-template': 'error',
       'object-shorthand': 'off',
       'no-constant-condition': 'error',
-      'space-before-function-paren': ['error', 'never'],
-      'no-multi-spaces': ['error', { ignoreEOLComments: true }],
-      'no-dupe-args': 'error',
-      'key-spacing': ['error', { 'afterColon': true }],
-      'keyword-spacing': ['error', { 'before': true }],
-      'eol-last': ['error', 'always'],
       'no-case-declarations': 'off',
       'prefer-spread': 'off',
       'prefer-rest-params': 'off',
       'no-undef': 'off',
+
+      // Stylistic rules
+      '@stylistic/indent': ['error', 2, { SwitchCase: 1 }],
+      '@stylistic/quotes': ['error', 'single', { avoidEscape: true }],
+      '@stylistic/comma-dangle': ['error', 'never'],
+      '@stylistic/space-before-function-paren': ['error', 'never'],
+      '@stylistic/no-multi-spaces': ['error', { ignoreEOLComments: true }],
+      '@stylistic/key-spacing': ['error', { afterColon: true }],
+      '@stylistic/keyword-spacing': ['error', { before: true }],
+      '@stylistic/eol-last': ['error', 'always'],
+      '@stylistic/semi': ['error', 'never'],
+      '@stylistic/object-curly-spacing': ['error', 'always'],
+      '@stylistic/array-bracket-spacing': ['error', 'never'],
+      '@stylistic/comma-spacing': ['error', { before: false, after: true }],
+      '@stylistic/space-infix-ops': 'error',
+      '@stylistic/space-unary-ops': 'error',
+      '@stylistic/arrow-spacing': 'error',
 
       // TS
       '@typescript-eslint/explicit-module-boundary-types': 'off',

@@ -1,10 +1,10 @@
 import path from 'path'
 import esbuild from 'rollup-plugin-esbuild'
-import typescript from 'rollup-plugin-typescript2';
-import { fileURLToPath } from 'url';
+import typescript from 'rollup-plugin-typescript2'
+import { fileURLToPath } from 'url'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const entryFile = 'src/index.ts'
 

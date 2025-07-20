@@ -3,8 +3,8 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/ts-library-starter/',
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+  title: 'My Awesome Project',
+  description: 'A VitePress Site',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -17,7 +17,7 @@ export default defineConfig({
         text: 'Examples',
         items: [
           { text: 'Quick Start', link: '/quick-start' },
-          { text: 'Markdown Examples', link: '/markdown-examples' },
+          { text: 'Markdown Examples', link: '/markdown-examples' }
         ]
       }
     ],
@@ -29,7 +29,7 @@ export default defineConfig({
       provider: 'local'
     },
     editLink: {
-      pattern: 'https://github.com/uphg/ts-library-starter/edit/master/src/:path',
+      pattern: 'https://github.com/uphg/ts-library-starter/edit/master/src/:path'
     }
   }
 })
