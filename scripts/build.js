@@ -49,6 +49,6 @@ async function run(argv) {
   await execa('eslint', ['dist', '--fix'])
   const strPackage = JSON.stringify(packageJson, null, 2)
   fs.writeFile(resolve('./package.json'), strPackage)
-  await execa('cp', ['README.md', 'dist'])
+  await fs.copy('README.md', resolve('README.md'))
   console.log('build ok!')
 }
