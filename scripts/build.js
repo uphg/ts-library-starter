@@ -41,12 +41,8 @@ async function run(argv) {
   }
 
   await execa('rollup', ['-c', 'rollup.config.ts', '--environment', 'CJS', '--configPlugin', '@rollup/plugin-typescript'])
-  // await execa('rollup', ['-c', '--environment', 'CJS'])
-  // await fs.remove(resolve('index.js'))
   await execa('rollup', ['-c', 'rollup.config.ts', '--environment', 'ESM', '--configPlugin', '@rollup/plugin-typescript'])
-  // await execa('rollup', ['-c', '--environment', 'ESM'])
   await execa('rollup', ['-c', 'rollup.config.ts', '--configPlugin', '@rollup/plugin-typescript'])
-  await execa('eslint', ['dist', '--fix'])
   const strPackage = JSON.stringify(packageJson, null, 2)
   fs.writeFile(resolve('./package.json'), strPackage)
   await fs.copy('README.md', resolve('README.md'))

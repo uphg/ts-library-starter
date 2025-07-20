@@ -25,6 +25,3 @@ docs/.vitepress/cache
 *.njsproj
 *.sln
 *.sw?
-
-
-pnpm-lock.yaml
